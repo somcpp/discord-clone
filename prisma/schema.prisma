@@ -35,6 +35,7 @@ model Server {
   imageUrl String @db.Text
   profileId String
   profile Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  inviteCode String @unique
 
   members Member[]
   channels Channel[]

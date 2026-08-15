@@ -1,6 +1,19 @@
 import { clerkMiddleware } from '@clerk/nextjs/server';
 
-export default clerkMiddleware();
+export default clerkMiddleware((auth, req) => {
+  // Allow UploadThing to happen without auth
+  if (req.url.includes("/api/uploadthing")) {
+    return;
+  }
+
+  // Allow public routes
+  if (req.url.includes("/sign-in") || req.url.includes("/sign-up")) {
+    return;
+  }
+
+  // Everything else requires auth
+  auth.protect();
+});
 
 export const config = {
   matcher: [
