@@ -22,7 +22,9 @@ export default function RootLayout({
   children: ReactNode;
 }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider 
+      afterSignOutUrl="/"
+    >
     <html lang="en" suppressHydrationWarning className={`${openSans.variable} h-full antialiased`}>
       <body className={cn(
         openSans.className,
