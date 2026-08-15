@@ -1,10 +1,9 @@
-"use client"
+"use client";
 
 import { cn } from "@/lib/utils";
 import { ActionTooltip } from "../action-tooltip";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 
 interface NavigationItemProps {
   id: string;
@@ -17,43 +16,42 @@ export const NavigationItem = ({
   imageUrl,
   name
 }: NavigationItemProps) => {
-
   const params = useParams();
   const router = useRouter();
-  
+
   const handleClick = () => {
     router.push(`/servers/${id}`);
-  }
+  };
+
+  const isActive = params?.serverId === id;
 
   return (
-    <div className="relative">
+    <div className="relative group flex items-center mb-4">
+      {/* Active / Hover Indicator */}
+      <div
+        className={cn(
+          "absolute left-0 bg-primary rounded-r-full transition-all w-[4px]",
+          isActive ? "h-[36px]" : "h-[8px] group-hover:h-[20px]"
+        )}
+      />
 
       <ActionTooltip side="right" align="center" label={name}>
-
-        {/* Active indicator */}
-        <div
-
+        <button
+          onClick={handleClick}
           className={cn(
-            "absolute left-0 top-1/2 -translate-y-1/2 w-[4px] bg-primary rounded-r-full transition-all",
-            params?.serverId === id ? "h-[36px]" : "h-0"
+            "relative group flex mx-3 h-[48px] w-[48px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden",
+            isActive && "bg-primary/10 text-primary rounded-[16px]"
           )}
-        />
-
-        {/* Image */}
-        <div 
-        onClick={handleClick}
-        className="flex items-center justify-center mx-1 h-[48px] w-[48px]">
+        >
           <Image
             src={imageUrl}
             alt={name}
-            width={40}
-            height={30}
-            className="rounded-full object-cover"
+            fill
+            sizes="48px"
+            className="object-cover"
           />
-        </div>
-
+        </button>
       </ActionTooltip>
-
     </div>
   );
 };
