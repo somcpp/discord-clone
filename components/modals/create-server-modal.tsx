@@ -26,6 +26,7 @@ import { Button } from "@/components/ui/button";
 import FileUpload from "../fileUpload";
 import { useRouter } from "next/navigation";
 import { useModal } from "@/hooks/use-modal-store";
+import { useEffect, useState } from "react";
 
 // -----------------------------
 // Zod Schema
@@ -88,6 +89,15 @@ export const CreateServerModal = () => {
   const handleClose = () => {
     form.reset();
     onClose();
+  }
+
+  const [mounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
   }
 
   return (

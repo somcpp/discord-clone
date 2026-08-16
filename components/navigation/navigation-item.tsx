@@ -36,7 +36,7 @@ export const NavigationItem = ({
       />
 
       <ActionTooltip side="right" align="center" label={name}>
-        <button
+        <div
           onClick={handleClick}
           className={cn(
             "relative group flex mx-3 h-[48px] w-[48px] rounded-[24px] group-hover:rounded-[16px] transition-all overflow-hidden",
@@ -50,7 +50,7 @@ export const NavigationItem = ({
             sizes="48px"
             className="object-cover"
           />
-        </button>
+        </div>
       </ActionTooltip>
     </div>
   );

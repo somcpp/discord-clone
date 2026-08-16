@@ -25,6 +25,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import FileUpload from "../fileUpload";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 // -----------------------------
 // Zod Schema
@@ -80,6 +81,15 @@ export const InitialModal = () => {
     }
 
   };
+
+  const [mounted, setIsMounted] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return null;
+  }
 
   return (
     <Dialog open>
