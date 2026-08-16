@@ -33,7 +33,7 @@ export async function PATCH(
       },
       data: {
         members: {
-          update: {
+          updateMany: {
             where: {
               id: memberId,
               profileId: {
@@ -66,3 +66,60 @@ export async function PATCH(
   }
 }
 
+export async function DELETE(
+  req: Request,
+  {params} : {params : Promise<{memberId : string}>}
+) {
+  try {
+    const profile = await currentProfile();
+    if(!profile){
+      return new NextResponse("Unauthorized", { status: 401});
+    }
+
+    const {memberId} = await params;
+
+    if(!memberId){
+      return new NextResponse("Member ID Missing", { status: 400});
+    }
+
+    const {searchParams} = new URL(req.url);
+    const serverId = searchParams.get("serverId");
+
+    if(!serverId){
+      return new NextResponse("Server ID Missing", { status: 400});
+    }
+
+    const server = await db.server.update({
+      where: {
+        id: serverId,
+        profileId: profile.id,
+      },
+      data: {
+        members: {
+          deleteMany: {
+            id: memberId,
+            profileId: {
+              not: profile.id
+            }
+          }
+        }
+      },
+      include: {
+        members: {
+          include: {
+            profile: true
+          },
+          orderBy: {
+            role: "asc"
+          }
+        },  
+      }
+    })
+
+    return NextResponse.json(server);
+
+  } catch (error) {
+    console.log("[MEMBER_ID]_DELETE", error);
+    return new NextResponse("Internal Server Error", { status: 500});
+  }
+}
