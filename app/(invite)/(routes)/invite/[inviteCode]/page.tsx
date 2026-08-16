@@ -35,6 +35,25 @@ const InviteCodePage = async ({params} : InviteCodePage) => {
     return redirect(`/servers/${existingServer.id}`);
   }
 
+  const serverExists = await db.server.findUnique({
+    where: {
+      inviteCode: inviteCode
+    }
+  });
+
+  if (!serverExists) {
+    return (
+      <div className="h-full flex flex-col items-center justify-center p-4">
+        <div className="text-center p-8 bg-white dark:bg-[#313338] rounded-lg shadow-md max-w-md w-full">
+          <h1 className="text-2xl font-bold mb-2 text-rose-500">Invalid Invite</h1>
+          <p className="text-zinc-500 dark:text-zinc-400">
+            This invite link is invalid or has expired.
+          </p>
+        </div>
+      </div>
+    );
+  }
+
   const server = await db.server.update({
     where: {
       inviteCode: inviteCode,
@@ -46,17 +65,13 @@ const InviteCodePage = async ({params} : InviteCodePage) => {
         }
       }
     }
-  })
+  });
 
-  if(server) {
+  if (server) {
     return redirect(`/servers/${server.id}`);
   }
 
-  return (
-    <div>
-      <h1>Loading...</h1>
-    </div>
-  )
+  return null;
 }
 
 export default InviteCodePage;
