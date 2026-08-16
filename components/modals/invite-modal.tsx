@@ -66,7 +66,7 @@ export function InviteModal() {
           </Label>
           <div className="flex items-center mt-2 gap-x-2">
             <Input
-              className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+              className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black dark:text-white focus-visible:ring-offset-0"
               value={inviteUrl}
               disabled={copied}
             />
