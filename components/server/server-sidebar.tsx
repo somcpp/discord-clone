@@ -16,7 +16,7 @@ export default async function ServerSidebar({serverId}: ServerSidebarProps) {
   if (!profile) {
     return redirect('/');
   }
-
+  //get all details from server like channels, members, name, imageurl, 
   const server = await db.server.findUnique({
     where: {
       id: serverId
