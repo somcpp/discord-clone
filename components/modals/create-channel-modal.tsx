@@ -50,6 +50,7 @@ export function CreateChannelModal() {
   const params = useParams();
 
   const isModalOpen = isOpen && type === "createChannel";
+  console.log(data)
   const {channelType} = data;
   
 
@@ -151,6 +152,7 @@ export function CreateChannelModal() {
                     <Select
                       disabled={isLoading}
                       onValueChange={field.onChange}
+                      value={field.value}
                       defaultValue={field.value}
                     >
                       <SelectTrigger className="bg-zinc-300/50 dark:bg-zinc-700/50 border-0 focus:ring-0 text-black dark:text-white ring-offset-0 focus:ring-offset-0 capitalize outline-none">
