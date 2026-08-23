@@ -80,9 +80,9 @@ export default async function ServerSidebar({ serverId }: ServerSidebarProps) {
   }
 
   return (
-    <div className="flex flex-col h-full text-primary w-full dark:bg-[#2b2d31] bg-[#f2f3f5]">
+    <div className="flex flex-col h-full min-h-0 text-primary w-full dark:bg-[#2b2d31] bg-[#f2f3f5]">
       <ServerHeader server={server} role={role} />
-      <ScrollArea className={"flex px-3"}>
+      <ScrollArea className="flex-1 min-h-0 px-3">
         <div className="mt-2">
           <ServerSearch
             data={[
