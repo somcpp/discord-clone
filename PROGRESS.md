@@ -52,17 +52,17 @@ npm run socket
 
 ---
 
-### ⏳ Phase 2: Message Feed & Infinite Scrolling (Next Up)
-- [ ] **`useChatQuery` hook**: Fetch historical messages in batches of 10 using TanStack `useInfiniteQuery`.
-- [ ] **`useChatSocket` hook**: Listen for real-time socket events (`addKey`, `updateKey`) and update the Query cache dynamically without page reload.
-- [ ] **`useChatScroll` hook**: Handle auto-scrolling to bottom on new messages and preserving scroll position when reading past messages.
-- [ ] **`ChatWelcome` component**: Display channel welcome header (*"Welcome to #general"*).
-- [ ] **`ChatItem` component**: Render individual message bubbles with user avatar, timestamp, role badge, file preview, edit button, and delete button.
-- [ ] **`ChatMessages` component**: Combine all hooks and components to render the full message feed in text channels.
+### ✅ Phase 2: Message Feed & Infinite Scrolling (Completed)
+- [x] **`useChatQuery` hook**: Fetch historical messages in batches of 10 using TanStack `useInfiniteQuery`.
+- [x] **`useChatSocket` hook**: Listen for real-time socket events (`addKey`, `updateKey`) and update the Query cache dynamically without page reload.
+- [x] **`useChatScroll` hook**: Handle auto-scrolling to bottom on new messages and preserving scroll position when reading past messages.
+- [x] **`ChatWelcome` component**: Display channel welcome header (*"Welcome to #general"*).
+- [x] **`ChatItem` component**: Render individual message bubbles with user avatar, timestamp, role badge, file preview, edit button, and delete button.
+- [x] **`ChatMessages` component**: Combine all hooks and components to render the full message feed in text channels.
 
 ---
 
-### ⏳ Phase 3: Message Editing, Deletion & File Attachments
+### ⏳ Phase 3: Message Editing, Deletion & File Attachments (Next Up)
 - [ ] **Edit Message**: Inline editing directly inside `ChatItem` with Escape/Enter shortcuts and `/api/messages/[messageId]` PATCH handler.
 - [ ] **Delete Message**: `DeleteMessageModal` confirmation and `/api/messages/[messageId]` DELETE handler (soft delete).
 - [ ] **Attachment Upload**: `MessageFileModal` to upload images/PDFs in chat via UploadThing.
