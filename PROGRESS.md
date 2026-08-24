@@ -69,14 +69,14 @@ npm run socket
 
 ---
 
-### ⏳ Phase 4: Direct Messaging (1-on-1 DMs) (Next Up)
-- [ ] **DM API Route**: `app/api/direct-messages/route.ts` (cursor-paginated `GET` and authenticated `POST`).
-- [ ] **DM Chat View**: Connect `ChatMessages` and `ChatInput` into `servers/[serverId]/conversations/[memberId]/page.tsx`.
-- [ ] **DM Editing & Deleting**: Handle update/delete socket broadcasts for direct conversations.
+### ✅ Phase 4: Direct Messaging (1-on-1 DMs) (Completed)
+- [x] **DM API Route**: `app/api/direct-messages/route.ts` (cursor-paginated `GET` and authenticated `POST`).
+- [x] **DM Chat View**: Connect `ChatMessages` and `ChatInput` into `servers/[serverId]/conversations/[memberId]/page.tsx`.
+- [x] **DM Editing & Deleting**: Handle update/delete socket broadcasts for direct conversations (`app/api/direct-messages/[directMessageId]/route.ts`).
 
 ---
 
-### ⏳ Phase 5: Voice & Video Calling (LiveKit WebRTC)
+### ⏳ Phase 5: Voice & Video Calling (LiveKit WebRTC) (Next Up)
 - [ ] **LiveKit Integration**: Token generation API route (`app/api/livekit/route.ts`).
 - [ ] **`MediaRoom` component**: Audio/video grid, mute/unmute, screen share, and video toggle button in header.
 
