@@ -62,14 +62,14 @@ npm run socket
 
 ---
 
-### ⏳ Phase 3: Message Editing, Deletion & File Attachments (Next Up)
-- [ ] **Edit Message**: Inline editing directly inside `ChatItem` with Escape/Enter shortcuts and `/api/messages/[messageId]` PATCH handler.
-- [ ] **Delete Message**: `DeleteMessageModal` confirmation and `/api/messages/[messageId]` DELETE handler (soft delete).
-- [ ] **Attachment Upload**: `MessageFileModal` to upload images/PDFs in chat via UploadThing.
+### ✅ Phase 3: Message Editing, Deletion & File Attachments (Completed)
+- [x] **Edit Message**: Inline editing directly inside `ChatItem` with Escape/Enter shortcuts and `/api/messages/[messageId]` PATCH handler.
+- [x] **Delete Message**: `DeleteMessageModal` confirmation and `/api/messages/[messageId]` DELETE handler (soft delete).
+- [x] **Attachment Upload**: `MessageFileModal` to upload images/PDFs in chat via UploadThing.
 
 ---
 
-### ⏳ Phase 4: Direct Messaging (1-on-1 DMs)
+### ⏳ Phase 4: Direct Messaging (1-on-1 DMs) (Next Up)
 - [ ] **DM API Route**: `app/api/direct-messages/route.ts` (cursor-paginated `GET` and authenticated `POST`).
 - [ ] **DM Chat View**: Connect `ChatMessages` and `ChatInput` into `servers/[serverId]/conversations/[memberId]/page.tsx`.
 - [ ] **DM Editing & Deleting**: Handle update/delete socket broadcasts for direct conversations.

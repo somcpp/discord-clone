@@ -207,7 +207,12 @@ export function ChatItem({
                   {...form.register("content")}
                 />
               </div>
-              <Button disabled={isLoading} size="sm" variant="primary">
+              <Button
+                type="submit"
+                disabled={isLoading}
+                size="sm"
+                variant="primary"
+              >
                 Save
               </Button>
             </form>
@@ -224,7 +229,10 @@ export function ChatItem({
           {canEditMessage && (
             <ActionTooltip label="Edit">
               <Edit
-                onClick={() => setIsEditing(true)}
+                onClick={() => {
+                  form.setValue("content", content);
+                  setIsEditing(true);
+                }}
                 className="cursor-pointer ml-auto w-4 h-4 text-zinc-500 hover:text-zinc-600 dark:hover:text-zinc-300 transition"
               />
             </ActionTooltip>
