@@ -1,0 +1,16 @@
+{
+  "name": "discord-socket-server",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "tsx index.ts",
+    "build": ""
+  },
+  "dependencies": {
+    "socket.io": "^4.8.3",
+    "tsx": "^4.23.12"
+  },
+  "devDependencies": {
+    "@types/node": "^20"
+  }
+}
